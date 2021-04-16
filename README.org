@@ -1,0 +1,44 @@
+#+TITLE: st - The suckless simple terminal
+#+AUTHOR: Jean-Baptiste Loutfalla
+#+LANGUAGE: en
+#+DESCRIPTION: My st (simple terminal) build
+#+OPTIONS: toc:nil
+
+The [[https://st.suckless.org/][suckless simple terminal (st)]] with some additions.
+
+* Patches
+Here's the list of every patches that I applied:
+- [[https://st.suckless.org/patches/alpha/][alpha]] -- /a compositor is required/
+- [[https://st.suckless.org/patches/anysize/][anysize]]
+- [[https://st.suckless.org/patches/boxdraw/][boxdraw]]
+- [[https://st.suckless.org/patches/font2/][font2]]
+- [[https://st.suckless.org/patches/scrollback/][scrollback and scrollback-mouse]]
+- [[https://st.suckless.org/patches/xresources/][xresources]]
+
+* Colors
+By default, the color scheme is set to [[https://github.com/honza/base16-st/blob/master/build/base16-tomorrow-night-theme.h][Base16's Tomorrow Night]] but it
+can be override by the settings of your =Xresources= file.
+
+This build also supports the use of [[https://github.com/dylanaraps/pywal][pywal]] to set the color scheme
+which override the default scheme and the one from the =Xresources=
+file.
+
+/(Note that if you runs/ =pywal= /in your session, the transparency will be turned of in existing windows of st, but new windows will continue with the previous defined transparency.)/
+
+* Installation
+** Requirements
+In order to build this fork, you will need =libX11=, =fontconfig= and
+=libXft=.
+
+If st crashes when viewing emojis, install [[https://aur.archlinux.org/packages/libxft-bgra/][libxft-bgra]]. This is the
+name of a package on the Arch User Repository (AUR) which apply a
+patch to =libXft= to allow emoji rendering.
+
+** Compilation
+Simply clone this repository and =make=:
+#+BEGIN_SRC shell
+  git clone https://github.com/jloutfalla/st
+  cd st
+  make
+  sudo make install
+#+END_SRC
